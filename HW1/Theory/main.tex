@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage{scribe}
+\usepackage{graphicx}
+
+% Uncomment the appropriate line
+%\Scribe{Your name}
+
+\Scribes{Frendy Lio Can}
+\LectureDate{September 16, 2020}
+\LectureTitle{Homework Assignment \#1 - Theory Problems}
+
+%\usepackage[mathcal]{euscript}
+
+
+\begin{document}
+
+\MakeScribeTop
+
+%\paragraph{This is a paragraph heading} Paragraph.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 1}}}
+
+% Start of Explaining
+
+\begin{flushleft}
+    Let $p = \begin{bmatrix} x\\ y\\ 1 \end{bmatrix} $
+   and $p^{'} = (S \cdot R \cdot T) \cdot p \therefore{} $
+\end{flushleft}   
+
+\begin{equation*}
+\begin{split}
+    p^{'} & =  
+        \begin{bmatrix} s_x &0 &0 \\ 0 &s_y &0 \\ 0 &0 &1 \end{bmatrix} 
+        \begin{bmatrix} cos\theta &-sin\theta &0 \\ sin\theta &cos\theta &0 \\ 0 &0 &1 \end{bmatrix} 
+        \begin{bmatrix} 1 &0 &t_x \\ 0 &1 &t_y \\ 0 &0 &1 \end{bmatrix}
+        \begin{bmatrix} x\\ y\\ 1 \end{bmatrix} 
+        \\
+        & = \begin{bmatrix} s_x &0 &0 \\ 0 &s_y &0 \\ 0 &0 &1 \end{bmatrix}  
+            \begin{bmatrix} cos\theta &-sin\theta &t^{'}_x \\ sin\theta &cos\theta &t^{'}_y \\ 0 &0 &1 \end{bmatrix} 
+            \begin{bmatrix} x\\ y\\ 1 \end{bmatrix} 
+        \\
+        & = \begin{bmatrix} S^{'} &0 \\ 0 &1 \end{bmatrix}
+            \begin{bmatrix} R^{'} &t^{'} \\ 0 &1 \end{bmatrix} 
+            \begin{bmatrix} x\\ y\\ 1 \end{bmatrix} 
+        \\
+        & = \begin{bmatrix} S^{'}R^{'} &S^{'}t^{'} \\ 0 &1 \end{bmatrix}
+            \begin{bmatrix} x\\ y\\ 1 \end{bmatrix}
+        \\
+    Where \\
+    S^{'} & = \begin{bmatrix} S_x &0 \\ 0 &S_y \end{bmatrix} \\
+    R^{'} & = \begin{bmatrix} cos\theta &-sin\theta \\ sin\theta &cos\theta \end{bmatrix} \\
+    t^{'} & = \begin{bmatrix} t_xcos\theta - t_ysin\theta \\ t_xsin\theta + t_ycos\theta \end{bmatrix} 
+\end{split}
+\end{equation*}
+
+\begin{flushleft}
+    Thus, we can observed that the SRT matrix and the TRS matrix from the lecture are different since:
+\end{flushleft}   
+
+\begin{equation*}
+    \begin{split}
+        SRT & \neq  TRS \\
+        \begin{bmatrix} S^{'}R^{'} &S^{'}t^{'} \\ 0 &1 \end{bmatrix}
+        \begin{bmatrix} x\\ y\\ 1 \end{bmatrix}
+        & \neq
+        \begin{bmatrix} R^{'}S^{'} & t \\ 0 &1 \end{bmatrix}
+        \begin{bmatrix} x\\ y\\ 1 \end{bmatrix} , \quad
+        t = \begin{bmatrix} t_x \\ t_y \end{bmatrix}
+    \end{split}
+    \end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 2}}}
+
+\begin{equation*}
+\begin{split}
+A & =  U \Sigma V^T \Rightarrow A^T = V \Sigma U^T \\ \therefore{}\\
+A A^T & = U \Sigma V^T V \Sigma ^T U^T \Leftrightarrow \\
+\Leftrightarrow A A^T & = U \Sigma \Sigma^T U^T \\
+\Leftrightarrow A A^T U & = U \Sigma \Sigma^T U \\
+\Leftrightarrow A A^T U & = U \Sigma \Sigma^T \\
+\end{split}
+\end{equation*}
+
+\begin{flushleft}
+    Thus, we can observed that $\Sigma \Sigma^T$ must be the eigenvalue matrix of $A A^T$.
+    Therefore each $\sigma ^2 = \lambda(A^T A)$.\newline\newline
+    Assuming that A is a diagonal Matrix, it implies that the square root of eigenvalues are the singular values since
+    $A A^T = \sigma_i^2 \frac{u_i}{v_i} = \sigma_i^2 \frac{u_i}{u_i}$ where $\sigma_i$ are the singular value and $u_i = v_i$ for this case. \newline\newline
+    Finally, we can conclude that $A A^T$ are the columns of $U$.
+\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 3}}}
+
+\begin{flushleft}
+    A (Total area of sensor) $= 512 x 512$ pixels \newline
+    C (Center) $= (256, 256)$ \newline
+    $P (1,2,8) \rightarrow (356, 456)$ (In meters and pixels)
+    $Q (-3, -1, 16)$
+    \newline
+    
+    From the projection of P we deduce the following: \newline
+       $ x-axis \rightarrow 1 : 100 (356 - 256 = 100)$ \newline
+       $ y-axis \rightarrow 2 : 200 (456 - 256 = 200)$ \newline
+
+    We can observe that $Q_z = 16$ is 2 time bigger than $P_z = 8$. This implies that $P_x$ and $P_y$ are 4 time bigger than $Q_x$ and $Q_y$.
+    \newline \newline
+    Therefore, \newline
+        $ x-axis \rightarrow -3 : -75 \because for P_x$ $1: 100 \therefore{} Q_y$ $1: 25 \rightarrow (256 - 75 = 181)$ \newline
+        $ y-axis \rightarrow -1 : -25 \because for P_y$ $1: 100 \therefore{} Q_y$ $1: 25 \rightarrow (256 - 25 = 231)$ \newline
+    \newline 
+    Projection of Q is $(231, 181)$
+
+\end{flushleft}
+
+\end{document}
