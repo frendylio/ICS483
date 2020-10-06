@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage{scribe}
+\usepackage{graphicx}
+
+% Uncomment the appropriate line
+%\Scribe{Your name}
+
+\Scribes{Frendy Lio Can}
+\LectureDate{October 5, 2020}
+\LectureTitle{Homework Assignment \#2 - Theory Problems}
+
+%\usepackage[mathcal]{euscript}
+
+
+\begin{document}
+
+\MakeScribeTop
+
+%\paragraph{This is a paragraph heading} Paragraph.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 1}}}
+
+% Start of Explaining
+
+\begin{flushleft}
+    We know that each pixel corresponds to $0.01 mm$. This implies that the sphered has 
+    a projected radius of $20 pixels = 20 * 0.01 = 0.2 mm$. 
+
+    Therefore $0.2mm*Z = 10mm * 1 m \Rightarrow Z = 50$ meters
+\end{flushleft}   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 2 a)}}}
+
+% Start of Explaining
+
+\begin{equation*}
+\begin{split}
+    O_{cor}[0,0] & = 0*(1) + 1*(1) + 2*(-1) = -1 \\ 
+    O_{cor}[0,1] & = 1*(1) + 2*(1) + 3*(-1) = 0 \\ 
+    O_{cor}[0,2] & = 2*(1) + 3*(1) + 0*(-1) = 5 \\ 
+    O_{cor}[1,0] & = 0*(1) + 4*(1) + 0*(-1) = 4 \\ 
+    O_{cor}[1,1] & = 4*(1) + 0*(1) + 5*(-1) = -1 \\ 
+    O_{cor}[1,2] & = 0*(1) + 5*(1) + 0*(-1) = 5 \\ 
+    O_{cor}[2,0] & = 0*(1) + 0*(1) + 0*(-1) = 0 \\ 
+    O_{cor}[2,1] & = 0*(1) + 0*(1) + 1*(-1) = -1 \\ 
+    O_{cor}[2,2] & = 0*(1) + 1*(1) + 0*(-1) = 1 
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+O_{cor} & =  
+\begin{bmatrix} -1 &0 &5 \\ 4 &-1 &5 \\ 0 &-1 &1 \end{bmatrix} 
+\end{split}
+\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 2 b)}}}
+
+% Start of Explaining
+
+\begin{equation*}
+\begin{split}
+    O_{cov}[0,0] & = 0*(-1) + 1*(1) + 2*(1) = 3 \\ 
+    O_{cov}[0,1] & = 1*(-1) + 2*(1) + 3*(1) = 4 \\ 
+    O_{cov}[0,2] & = 2*(-1) + 3*(1) + 0*(1) = 1 \\ 
+    O_{cov}[1,0] & = 0*(-1) + 4*(1) + 0*(1) = 4 \\ 
+    O_{cov}[1,1] & = 4*(-1) + 0*(1) + 5*(1) = 1 \\ 
+    O_{cov}[1,2] & = 0*(-1) + 5*(1) + 0*(1) = 5 \\ 
+    O_{cov}[2,0] & = 0*(-1) + 0*(1) + 0*(1) = 0 \\ 
+    O_{cov}[2,1] & = 0*(-1) + 0*(1) + 1*(1) = 1 \\ 
+    O_{cov}[2,2] & = 0*(-1) + 1*(1) + 0*(1) = 1 
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+O_{cov} & =  
+\begin{bmatrix} 3 &4 &1 \\ 4 &1 &5 \\ 0 &1 &1 \end{bmatrix} 
+\end{split}
+\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 3 a)}}}
+
+\begin{equation*}
+\begin{split}
+h & =  
+\begin{bmatrix} 1  &3 &1 \\ 0 &0 &0 \\ -1 &-3 &-1 \end{bmatrix} 
+\end{split}
+\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\noindent\textbf{\LARGE{Problem 3 b)}}}
+
+\begin{flushleft}
+Yes, h is separable
+\end{flushleft} 
+\begin{equation*}
+\begin{split}
+h_1 & =  
+\begin{bmatrix} 1  &0 &-1 \end{bmatrix} \\
+h_2 & = 
+\begin{bmatrix} 1 \\3 \\1\end{bmatrix}
+\end{split}
+\end{equation*}
+
+\end{document}
